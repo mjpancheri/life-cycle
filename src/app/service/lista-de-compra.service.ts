@@ -44,4 +44,11 @@ export class ListaDeCompraService {
 
     this.listaDeCompra.push(novoItem);
   }
+
+  editarItem(item: Item, novoNome: string) {
+    item.nome = novoNome;
+    item.data = new Date().toLocaleString('pt-BR');
+    const index = this.listaDeCompra.findIndex((i) => i.id === item.id);
+    this.listaDeCompra[index] = item;
+  }
 }
